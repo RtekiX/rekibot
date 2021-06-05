@@ -15,7 +15,7 @@ scheduler = require("nonebot_plugin_apscheduler").scheduler
 
 @scheduler.scheduled_job("interval", minutes=600)
 async def Tiyixia():
-    bot = nonebot.get_bots().get("2216682142")
+    bot = nonebot.get_bots().get("your bot id")
     await bot.call_api(api="send_group_msg", group_id=data_source.ABanG_id,
                        message="打扰一下，记得提⭕")
     # Export something for other plugin
