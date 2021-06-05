@@ -20,7 +20,7 @@ scheduler = require("nonebot_plugin_apscheduler").scheduler
 @scheduler.scheduled_job("cron", day=31, hour=22, minute=0)
 async def UpdateAndSave():
     # 打开数据库连接, 将这里的连接信息替换为你的数据库连接信息
-    bot = nonebot.get_bots().get("2216682142")
+    bot = nonebot.get_bots().get("your bot id")
 
     db = pymysql.connect(host=data_source.DB_HOST, user=data_source.DB_USER,
                          password=data_source.DB_PASS, database=data_source.DB_NAME,
