@@ -27,7 +27,7 @@ async def handle_receive_notice(bot: Bot, event: Event, state: T_State):
         await Notice_Match.finish(message="有不好的事情发生了")
     elif NoticeType == "group_increase":
         reply_message = [{"type": "at", "data": {"qq": "{}".format(event.user_id)}}, {
-            "type": "text", "data": {"text": "，欢迎加入本群"}}]
+            "type": "text", "data": {"text": "，欢迎加入本群，记得看过往群公告"}}]
         await Notice_Match.finish(message=reply_message)
     elif NoticeType == "notify" and event.sub_type == "poke" and str(event.sender_id) != bot.self_id and str(event.target_id) == bot.self_id:
         reply_mes = [{"type": "poke", "data": {
