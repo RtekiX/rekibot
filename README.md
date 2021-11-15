@@ -6,7 +6,7 @@
 所有的记录会由插件shitcount记录并存储在本地mysql数据库的表中，表名为shitcount\_[群号]  
 如果表在数据库中不存在，则事件处理器会自动创建表  
 但注意：如果数据库不存在，事件处理器**不会**自动创建库，所以请自行在本地创建mysql数据库  
-每个月31号22:00，updateandsaveshitcount插件会自动将当前数据库中所有表导出为csv文件存放在本地，并清空所有表  
+每个月28号22:00，updateandsaveshitcount插件会自动将当前数据库中所有表导出为csv文件存放在本地，并清空所有表  
 
 ## 如何使用
 
@@ -20,4 +20,7 @@
 
 **可能会需要自行添加或修改的数据**：botID、数据库连接信息、.env中的配置信息...
 
+This is a QQ bot based on nonebot2 and gocqhttp
+Main for keyword counting, with some other functions
 
+I created it for fun
