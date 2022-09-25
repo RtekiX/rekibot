@@ -11,10 +11,10 @@ global_config = get_driver().config
 config = Config(**global_config.dict())
 
 
-scheduler = require("nonebot_plugin_apscheduler").scheduler
+scheduler4 = require("nonebot_plugin_apscheduler").scheduler
 
 
-@scheduler.scheduled_job("cron", day=28, hour=22, minute=0)
+@scheduler4.scheduled_job("cron", day=28, hour=22, minute=0)
 async def UpdateAndSave():
     # 打开数据库连接, 将这里的连接信息替换为你的数据库连接信息
     bot = nonebot.get_bots().get("2216682142")
@@ -32,7 +32,7 @@ async def UpdateAndSave():
             max_user_nickname = max_user.get("NickName")
             max_user_count = max_user.get("ShitCount")
             await bot.call_api(api="send_group_msg", group_id=int(GroupNumber),
-                               message="本月的恶臭之王是{0}，他勇夺{1}个标记物，下个月也要努力哦".format(max_user_nickname, str(max_user_count)))
+                               message="本月的恶臭之王是{0}，他勇夺{1}个标记物，下个月继续努力".format(max_user_nickname, str(max_user_count)))
         clear_table = "truncate table shitcount_{0}".format(GroupNumber)
         cursor.execute(clear_table)
         db.commit()

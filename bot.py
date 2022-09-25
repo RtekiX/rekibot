@@ -23,6 +23,10 @@ driver.register_adapter("cqhttp", CQHTTPBot)
 nonebot.load_builtin_plugins()  # 加载内置插件
 nonebot.load_plugins("./plugins")  # 加载用户插件
 nonebot.load_from_toml("pyproject.toml")
+nonebot.init(apscheduler_autostart=True)
+nonebot.init(apscheduler_config={
+    "apscheduler.timezone": "Asia/Shanghai"
+})
 
 # Modify some config / config depends on loaded configs
 #

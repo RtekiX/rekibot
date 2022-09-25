@@ -8,7 +8,7 @@ import os
 import time
 import timeout_decorator
 
-image = on_command("上传图片", rule=None, priority=3)
+image = on_command("上传语录", rule=None, priority=3)
 
 
 @image.handle()
@@ -33,13 +33,13 @@ async def handle_image_content(bot: Bot, event: Event, state: T_State):
     if image_content == "结束":
         await image.finish("上传结束")
     else:
-        img_url = image_content.split(',')[3][4:-1]
+        img_url = image_content.split(',')[-1][4:-1]
         urlup(img_url, event.get_user_id(), str(event.group_id))
         await image.reject("继续")
 
 
 def urlup(url, uploader, up_group):
-    filepath = "../../uploaded_image"
+    filepath = "../../pihua_image"
     if not os.path.exists(filepath):  # 判断当前路径是否存在，没有则创建new文件夹
         os.makedirs(filepath)
     headers = {

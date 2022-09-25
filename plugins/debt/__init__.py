@@ -82,6 +82,7 @@ async def handle_shit_count(bot: Bot, event: Event, state: T_State):
                 DayeID, debt_num, DayeNickName, SunziID, SunziNickName, GroupId)
             cursor.execute(create_user)
             db.commit()
+            db.close()
             await DebtAdd.finish("【{0}({3})】 欠 【{1}({4})】 {2} 元".format(DayeNickName, SunziNickName, debt_num, DayeID, SunziID))
         else:
             debt_num_old = float(res.get('DebtNum'))
@@ -92,8 +93,8 @@ async def handle_shit_count(bot: Bot, event: Event, state: T_State):
             db.commit()
             finalreply = "【{0}({3})】 欠 【{1}({4})】 {2} 元".format(
                 DayeNickName, SunziNickName, debt_num_new, DayeID, SunziID)
+            db.close()
             await DebtAdd.finish(finalreply)
-        db.close()
 
 
 # 完全匹配触发
