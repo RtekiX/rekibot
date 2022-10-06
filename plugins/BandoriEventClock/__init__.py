@@ -20,7 +20,7 @@ async def KuaiDaBang():
     r = requests.get("https://bestdori.com/api/events/all.3.json")
     jsonified_r = r.json()
 
-    EventNum = len(jsonified_r)
+    EventNum = len(jsonified_r) - 1
     EventName = jsonified_r[str(EventNum)]["eventName"][0]
     EventEnd = jsonified_r[str(EventNum)]["endAt"][0]
 
