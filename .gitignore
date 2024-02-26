@@ -10,14 +10,14 @@ __pycache__/
 # data_source.py里存放一些和群id，用户id相关的数据
 data_source.py
 
-./plugins/gay/
-./plugins/lesbian/
-./plugins/pihua/
-./plugins/pihuacount/
-./plugins/shitcount/
-./plugins/updateandsaveshitcount/
-./plugins/upload_gay/
-./plugins/upload_pihua/
+plugins/gay/
+plugins/lesbian/
+plugins/pihua/
+plugins/pihuacount/
+plugins/shitcount/
+plugins/updateandsaveshitcount/
+plugins/upload_gay/
+plugins/upload_pihua/
 
 
 # C extensions
