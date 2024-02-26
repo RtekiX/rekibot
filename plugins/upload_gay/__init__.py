@@ -1,4 +1,4 @@
-from . import data_source
+﻿from . import data_source
 from nonebot import on_command
 from nonebot.typing import T_State
 from nonebot.adapters import Bot, Event
@@ -33,7 +33,7 @@ async def handle_image_content(bot: Bot, event: Event, state: T_State):
     if image_content == "结束":
         await image.finish("上传结束")
     else:
-        img_url = image_content.split(',')[2][4:-1]
+        img_url = image_content.split(',')[3][4:-1]
         urlup(img_url, event.get_user_id(), str(event.group_id))
         await image.reject("继续")
 

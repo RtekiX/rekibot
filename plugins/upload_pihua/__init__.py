@@ -8,7 +8,7 @@ import os
 import time
 import timeout_decorator
 
-image = on_command("上传语录", rule=None, priority=3)
+image = on_command("上传语录", rule=None, priority=3, block=True)
 
 
 @image.handle()
@@ -17,9 +17,9 @@ async def handle_first_receive(bot: Bot, event: Event, state: T_State):
     User_id = event.get_user_id()
     if Gruop_id not in data_source.allowed_group or User_id in data_source.baned_id:
         raise FinishedException
-    args = str(event.get_message()).strip()  # 首次发送命令时跟随的参数
+    args = str(event.get_message()).strip()  
     if args:
-        state["image_content"] = args  # 如果用户发送了参数则直接赋值
+        state["image_content"] = args  
 
 
 @timeout_decorator.timeout(120)

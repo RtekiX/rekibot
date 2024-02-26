@@ -13,7 +13,7 @@ global_config = get_driver().config
 config = Config(**global_config.dict())
 
 
-send_pihua = on_keyword(data_source.keyword_set, rule=None, priority=3, block=False)
+send_pihua = on_keyword(data_source.keyword_set, rule=None, priority=4, block=False)
 
 
 @send_pihua.handle()

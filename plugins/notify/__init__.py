@@ -1,4 +1,4 @@
-# import nonebot
+﻿# import nonebot
 from nonebot import get_driver
 from nonebot.plugin import on_notice
 from nonebot.adapters import Bot, Event
@@ -17,6 +17,8 @@ Notice_Match = on_notice(priority=1, block=True)
 
 @Notice_Match.handle()
 async def handle_receive_notice(bot: Bot, event: Event, state: T_State):
+    if str(event.group_id) in data_source.banned_group:
+        raise FinishedException
     NoticeType = event.notice_type
     if NoticeType == "group_admin":
         if event.sub_type == "set":
@@ -27,7 +29,7 @@ async def handle_receive_notice(bot: Bot, event: Event, state: T_State):
         await Notice_Match.finish(message="有不好的事情发生了")
     elif NoticeType == "group_increase":
         reply_message = [{"type": "at", "data": {"qq": "{}".format(event.user_id)}}, {
-            "type": "text", "data": {"text": "，欢迎加入本群，记得看过往群公告"}}]
+            "type": "text", "data": {"text": "，欢迎加入本群~"}}]
         await Notice_Match.finish(message=reply_message)
     elif NoticeType == "notify" and event.sub_type == "poke" and str(event.sender_id) != bot.self_id and str(event.target_id) == bot.self_id:
         reply_mes = [{"type": "poke", "data": {
