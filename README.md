@@ -1,4 +1,4 @@
-# ShitBot_v3
+# RekiShitBot_v3
 
 ## How to start
 
